@@ -1,0 +1,59 @@
+/* Configurações básicas de layout da seção */
+.destaques {
+  padding: 3rem 1.5rem;
+  background-color: #f8fafc; /* Fundo cinza bem claro para conforto visual */
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.destaques__titulo {
+  text-align: center;
+  /* Contraste 17:1 em relação ao fundo (#f8fafc) — Excelente leitura */
+  color: #0f172a; 
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+/* --- Container Flexbox --- */
+.destaques__container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cartões quebrem para a próxima linha em telas menores */
+  justify-content: center; /* Centraliza os itens no eixo principal */
+  gap: 1.5rem; /* Espaçamento uniforme entre os cartões sem usar margens manuais */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Estilização dos Cartões --- */
+.cartao {
+  /* Flex-grow: 1 (cresce), Flex-shrink: 1 (encolhe), Flex-basis: 280px (largura base inicial) */
+  flex: 1 1 280px;
+  max-width: 360px;
+  background-color: #ffffff;
+  padding: 1.75rem;
+  border-radius: 8px;
+  
+  /* Borda lateral decorativa de destaque para reforçar o foco visual */
+  border-left: 6px solid #0284c7; 
+  
+  /* Sombra leve para separação de camadas sem poluição visual */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.cartao__titulo {
+  /* Contraste ~4.6:1 sobre fundo branco — Aprovado no padrão WCAG AA */
+  color: #0369a1; 
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.cartao__descricao {
+  /* Contraste ~9.5:1 sobre fundo branco — Nível AAA (Altíssima legibilidade) */
+  color: #334155; 
+  font-size: 1rem;
+  
+  /* Altura de linha adequada melhora significativamente a leitura para pessoas com dislexia */
+  line-height: 1.6; 
+  margin: 0;
+}

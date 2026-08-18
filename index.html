@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+       <!-- 
+  <section>: Agrupa um bloco temático de conteúdo relacionado. 
+  O atributo 'aria-labelledby' conecta esta seção diretamente ao seu título principal (h2),
+  ajudando leitores de tela a anunciar a área corretamente.
+-->
+<section class="destaques" aria-labelledby="destaques-titulo">
+
+  <!-- 
+    <h2>: Define a hierarquia do documento. Como esta é uma seção específica,
+    usamos o nível 2 de cabeçalho para respeitar a estrutura da página.
+  -->
+  <h2 id="destaques-titulo" class="destaques__titulo">Destaques sobre Empatia</h2>
+
+  <!-- 
+    <div>: Usado aqui unicamente como um container genérico semântico para 
+    agrupar e organizar visualmente nossos cartões via Flexbox.
+  -->
+  <div class="destaques__container">
+
+    <!-- 
+      <article>: Representa um conteúdo autônomo e independente. 
+      Cada cartão sobre empatia faz sentido por si só, sendo o elemento ideal aqui.
+    -->
+    <article class="cartao">
+      <!-- <h3>: Subtítulo interno do artigo, mantendo a ordem hierárquica (h2 -> h3) -->
+      <h3 class="cartao__titulo">1. Escuta Ativa</h3>
+      <!-- <p>: Tag semântica para blocos de texto/parágrafos -->
+      <p class="cartao__descricao">
+        Praticar empatia no código é ouvir as necessidades reais de quem usa a aplicação antes de tomar decisões de design.
+      </p>
+    </article>
+
+    <article class="cartao">
+      <h3 class="cartao__titulo">2. Perspectiva do Usuário</h3>
+      <p class="cartao__descricao">
+        Nem todo mundo navega com um mouse ou uma tela de alta resolução. Projetar com empatia é respeitar a diversidade de acessos.
+      </p>
+    </article>
+
+    <article class="cartao">
+      <h3 class="cartao__titulo">3. Acessibilidade Universal</h3>
+      <p class="cartao__descricao">
+        Acessibilidade não é uma funcionalidade extra; é o padrão básico para garantir que ninguém seja excluído da web.
+      </p>
+    </article>
+
+  </div>
+</section>
+    </main>
+</body>
+</html>
