@@ -1,62 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- 
+  WCAG 3.1.1 (Idioma da Página): O atributo 'lang="pt-BR"' indica aos leitores de tela 
+  qual sintetizador de voz e pronúncia utilizar para ler o conteúdo corretamente.
+-->
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <!-- 
+      WCAG 1.4.10 (Refluxo / Responsividade): Garante que a página se ajuste ao tamanho 
+      da tela do dispositivo sem exigir rolagem horizontal. Evitamos 'user-scalable=no' 
+      para permitir que usuários com baixa visão ampliem o texto conforme necessário.
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Blog do Tiago</title>
+    
+    <!-- Título descritivo e direto para identificação da aba/janela -->
+    <title>Blog do Tiago | Desenho Universal e Acessibilidade Web</title>
 </head>
 <body>
-    <main>
-       <!-- 
-  <section>: Agrupa um bloco temático de conteúdo relacionado. 
-  O atributo 'aria-labelledby' conecta esta seção diretamente ao seu título principal (h2),
-  ajudando leitores de tela a anunciar a área corretamente.
--->
-<section class="destaques" aria-labelledby="destaques-titulo">
-
-  <!-- 
-    <h2>: Define a hierarquia do documento. Como esta é uma seção específica,
-    usamos o nível 2 de cabeçalho para respeitar a estrutura da página.
-  -->
-  <h2 id="destaques-titulo" class="destaques__titulo">Destaques sobre Empatia</h2>
-      <h3>Blog do Tiago</h3>
-      <h4> Teste 123 </h4>
-  <!-- 
-    <div>: Usado aqui unicamente como um container genérico semântico para 
-    agrupar e organizar visualmente nossos cartões via Flexbox.
-  -->
-  <div class="destaques__container">
 
     <!-- 
-      <article>: Representa um conteúdo autônomo e independente. 
-      Cada cartão sobre empatia faz sentido por si só, sendo o elemento ideal aqui.
+      WCAG 2.4.1 (Blocos de Contorno / Skip Link): 
+      Link de atalho para usuários de teclado pularem a navegação repetitiva do topo 
+      e irem direto ao conteúdo principal. É oculto visualmente e aparece ao receber foco.
     -->
-    <article class="cartao">
-      <!-- <h3>: Subtítulo interno do artigo, mantendo a ordem hierárquica (h2 -> h3) -->
-      <h3 class="cartao__titulo">1. Escuta Ativa</h3>
-      <!-- <p>: Tag semântica para blocos de texto/parágrafos -->
-      <p class="cartao__descricao">
-        Praticar empatia no código é ouvir as necessidades reais de quem usa a aplicação antes de tomar decisões de design.
-      </p>
-    </article>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
-    <article class="cartao">
-      <h3 class="cartao__titulo">2. Perspectiva do Usuário</h3>
-      <p class="cartao__descricao">
-        Nem todo mundo navega com um mouse ou uma tela de alta resolução. Projetar com empatia é respeitar a diversidade de acessos.
-      </p>
-    </article>
+    <!-- 
+      <header>: Elemento semântico que representa o cabeçalho principal do site.
+      Ajuda tecnologias assistivas na navegação por marcos (landmarks).
+    -->
+    <header class="cabecalho">
+        <div class="container cabecalho__container">
+            <!-- 
+              WCAG 1.3.1 (Informações e Relações): Há apenas UM <h1> por página, 
+              representando o título principal do documento e o topo da hierarquia de cabeçalhos.
+            -->
+            <h1 class="cabecalho__titulo">Blog do Tiago</h1>
 
-    <article class="cartao">
-      <h3 class="cartao__titulo">3. Acessibilidade Universal</h3>
-      <p class="cartao__descricao">
-        Acessibilidade não é uma funcionalidade extra; é o padrão básico para garantir que ninguém seja excluído da web.
-      </p>
-    </article>
+            <!-- 
+              <nav>: Marco semântico de navegação. 
+              O atributo 'aria-label' diferencia este menu de outros possíveis menus da página.
+            -->
+            <nav class="navegacao" aria-label="Navegação principal">
+                <ul class="navegacao__lista">
+                    <li><a href="#sobre" class="navegacao__link">Quem Somos</a></li>
+                    <li><a href="#produtos" class="navegacao__link">Produtos</a></li>
+                    <li><a href="#destaques" class="navegacao__link">Empatia</a></li>
+                    <li><a href="#simulador" class="navegacao__link">Simulador</a></li>
+                    <li><a href="#contato" class="navegacao__link">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  </div>
-</section>
+    <!-- 
+      <main>: Representa o conteúdo principal e exclusivo da página.
+      O 'id="conteudo-principal"' é o destino do link de atalho (skip-link).
+      'tabindex="-1"' permite que o elemento receba foco programático sem entrar na ordem do TAB.
+    -->
+    <main id="conteudo-principal" tabindex="-1">
+        <div class="container">
+
+            <!-- SEÇÃO: QUEM SOMOS -->
+            <!-- 
+              <section>: Agrupa um bloco temático de conteúdo relacionado.
+              'aria-labelledby' associa semanticamente o título (h2) à seção correspondente.
+            -->
+            <section id="sobre" class="secao" aria-labelledby="sobre-titulo">
+                <!-- <h2>: Cabeçalho de nível 2, estabelecendo a estrutura hierárquica abaixo do h1 -->
+                <h2 id="sobre-titulo" class="secao__titulo">Quem somos?</h2>
+                <p class="secao__texto">
+                    Somos uma iniciativa focada em disseminar práticas de desenvolvimento web acessível, 
+                    garantindo que a internet seja um espaço democrático, inclusivo e navegável por todas as pessoas.
+                </p>
+            </section>
+
+            <!-- SEÇÃO: NOSSOS PRODUTOS -->
+            <section id="produtos" class="secao" aria-labelledby="produtos-titulo">
+                <h2 id="produtos-titulo" class="secao__titulo">Nossos Produtos</h2>
+                <p class="secao__texto">
+                    Oferecemos treinamentos, auditorias de acessibilidade WCAG 2.1 AA e componentes reutilizáveis 
+                    totalmente testados por leitores de tela e navegação por teclado.
+                </p>
+            </section>
+
+            <!-- SEÇÃO: DESTAQUES SOBRE EMPATIA -->
+            <section id="destaques" class="secao" aria-labelledby="destaques-titulo">
+                <h2 id="destaques-titulo" class="secao__titulo">Destaques sobre Empatia</h2>
+                
+                <!-- Container flex/grid para organização dos artigos -->
+                <div class="destaques__container">
+
+                    <!-- 
+                      <article>: Conteúdo autônomo e independente que faz sentido por si só.
+                      Ideal para posts, cartões de notícias ou blocos informativos destacados.
+                    -->
+                    <article class="cartao">
+                        <!-- <h3>: Subtítulo do artigo respeitando a ordem lógica (h1 -> h2 -> h3) -->
+                        <h3 class="cartao__titulo">1. Escuta Ativa</h3>
+                        <p class="cartao__descricao">
+                            Praticar empatia no código é ouvir as necessidades reais de quem usa a aplicação antes de tomar decisões de design.
+                        </p>
+                    </article>
+
+                    <article class="cartao">
+                        <h3 class="cartao__titulo">2. Perspectiva do Usuário</h3>
+                        <p class="cartao__descricao">
+                            Nem todo mundo navega com mouse ou monitor padrão. Projetar com empatia é respeitar a diversidade de tecnologias assistivas.
+                        </p>
+                    </article>
+
+                    <article class="cartao">
+                        <h3 class="cartao__titulo">3. Acessibilidade Universal</h3>
+                        <p class="cartao__descricao">
+                            Acessibilidade não é uma funcionalidade opcional; é o padrão básico para garantir que ninguém seja excluído do ambiente digital.
+                        </p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- SEÇÃO: SIMULADOR DE AÇÕES INTERATIVAS -->
+            <section id="simulador" class="secao" aria-labelledby="simulador-titulo">
+                <h2 id="simulador-titulo" class="secao__titulo">Simulador de Links e Botões Interativos</h2>
+                <p class="secao__texto">
+                    Teste os componentes interativos abaixo. Eles utilizam elementos nativos (`<a>` e `<button>`), 
+                    garantindo acessibilidade por teclado (Tab e Enter/Espaço) e feedback sonoro para leitores de tela.
+                </p>
+
+                <div class="simulador__acoes">
+                    <!-- 
+                      WCAG 4.1.2 (Nome, Função, Valor): Usamos a tag nativa <button> para ações 
+                      internas e <a> para navegação externa. Isso informa a função correta ao leitor de tela.
+                    -->
+                    <button type="button" class="botao" id="btn-curtir">
+                        👍 Curtir Artigo
+                    </button>
+
+                    <button type="button" class="botao botao--secundario" id="btn-compartilhar">
+                        🔗 Compartilhar
+                    </button>
+
+                    <a href="#contato" class="botao botao--link">
+                        📩 Ir para Contato
+                    </a>
+                </div>
+
+                <!-- 
+                  WCAG 4.1.3 (Mensagens de Status): 'aria-live="polite"' anuncia dinamicamente 
+                  alterações nesta área para leitores de tela sem interromper a fala atual do leitor.
+                -->
+                <div id="feedback-simulador" class="simulador__feedback" aria-live="polite">
+                    <em>Nenhuma ação executada até o momento. Clique em um dos botões acima.</em>
+                </div>
+            </section>
+
+            <!-- SEÇÃO: FORMULÁRIO DE CONTATO -->
+            <section id="contato" class="secao" aria-labelledby="contato-titulo">
+                <h2 id="contato-titulo" class="secao__titulo">Fale Conosco</h2>
+                
+                <!-- 
+                  WCAG 3.3.2 (Rótulos ou Instruções): O formulário possui estrutura clara, 
+                  labels vinculados e campos obrigatórios explicitados visual e semanticamente.
+                -->
+                <form class="formulario" action="#" method="post" novalidate>
+                    
+                    <div class="campo">
+                        <!-- 
+                          O atributo 'for' no <label> DEVE ser igual ao 'id' do <input>. 
+                          Isso permite que leitores de tela leiam a legenda ao focar no campo 
+                          e expande a área de clique para usuários com limitações motoras.
+                        -->
+                        <label for="nome" class="campo__label">
+                            Nome Completo <span class="campo__obrigatorio" aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="nome" 
+                            name="nome" 
+                            class="campo__input" 
+                            required 
+                            aria-required="true"
+                            autocomplete="name"
+                            placeholder="Ex: Maria Silva"
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="email" class="campo__label">
+                            E-mail de Contato <span class="campo__obrigatorio" aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="campo__input" 
+                            required 
+                            aria-required="true"
+                            autocomplete="email"
+                            placeholder="exemplo@dominio.com"
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="mensagem" class="campo__label">
+                            Sua Mensagem <span class="campo__obrigatorio" aria-hidden="true">*</span>
+                        </label>
+                        <textarea 
+                            id="mensagem" 
+                            name="mensagem" 
+                            class="campo__textarea" 
+                            rows="5" 
+                            required 
+                            aria-required="true"
+                            placeholder="Escreva sua mensagem aqui..."
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="botao botao--sucesso">Enviar Mensagem</button>
+
+                    <!-- Mensagem de status para envio do formulário -->
+                    <div id="feedback-formulario" class="simulador__feedback" aria-live="polite"></div>
+                </form>
+            </section>
+
+        </div>
     </main>
+
+    <!-- <footer>: Marco semântico para o rodapé da página -->
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 Blog do Tiago. Desenvolvido com foco em Acessibilidade Web (WCAG 2.1 AA).</p>
+        </div>
+    </footer>
+
+    <!-- Script leve e simples para simular a interatividade e atualizar a área aria-live -->
+    <script>
+        // Simulador de Botões Interativos
+        const btnCurtir = document.getElementById('btn-curtir');
+        const btnCompartilhar = document.getElementById('btn-compartilhar');
+        const feedbackSimulador = document.getElementById('feedback-simulador');
+
+        btnCurtir.addEventListener('click', () => {
+            feedbackSimulador.textContent = 'Ação registrada: Você curtiu o artigo sobre Empatia!';
+        });
+
+        btnCompartilhar.addEventListener('click', () => {
+            feedbackSimulador.textContent = 'Ação registrada: Link de compartilhamento copiado com sucesso!';
+        });
+
+        // Simulador do Formulário
+        const form = document.querySelector('.formulario');
+        const feedbackFormulario = document.getElementById('feedback-formulario');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            if (!nome || !email || !mensagem) {
+                feedbackFormulario.textContent = 'Erro ao enviar: Por favor, preencha todos os campos obrigatórios.';
+                feedbackFormulario.style.color = '#B91C1C';
+            } else {
+                feedbackFormulario.textContent = `Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.`;
+                feedbackFormulario.style.color = '#15803D';
+                form.reset();
+            }
+        });
+    </script>
 </body>
 </html>
